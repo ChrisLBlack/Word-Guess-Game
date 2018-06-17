@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Psychic Game</title>
+</head>
+
+<body>
+    <h1>Psychic Game</h1>
+    <div>
+        <ul>
+            <li>Wins:</li>
+            <li>Losses:</li>
+            <li>Guesses Left:</li>
+            <li id="four">Letters Guessed So Far:</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 9;
+        var userGuess = [];
+        var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
+            "t", "u", "v", "x", "y", "z"
+        ];
+
+        // picks random letter and prints to console
+        var rand = letters[Math.floor(Math.random() * letters.length)]; {
+            console.log(rand);
+        }
+        // logging user guess and pushing to userGuess array
+        document.onkeyup = function (event) {
+            var guess = event.key;
+            userGuess.push(guess);
+            console.log (guess);
+            
+        }
+
+        // $("#four").innerText("Letters guessed so far" + userGuess);;
+    
+        
+        //pushing user guess to guesses so far
+
+
+
+        // loops through letters until correct one is c
+
+        // function userGuess (){
+        // for (var i = 0; i < letters.length; i++) {
+        //     console.log ("Your guess was " + letters[i]);
+        // }
+        // }
+    </script>
+
+</body>
+
+</html>
