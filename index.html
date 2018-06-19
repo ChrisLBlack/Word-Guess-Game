@@ -13,7 +13,7 @@
     <h1>Psychic Game</h1>
     <div>
         <ul>
-            <li>Wins:</li>
+            <li id="wins">Wins:</li>
             <li>Losses:</li>
             <li>Guesses Left:</li>
             <li id="four">Letters Guessed So Far:</li>
@@ -24,6 +24,7 @@
         var losses = 0;
         var guessesLeft = 9;
         var userGuess = [];
+        var computerGuess = [];
         var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
             "t", "u", "v", "x", "y", "z"
         ];
@@ -31,29 +32,24 @@
         // picks random letter and prints to console
         var rand = letters[Math.floor(Math.random() * letters.length)]; {
             console.log(rand);
+            computerGuess.push(rand);
         }
-        // logging user guess and pushing to userGuess array
+
+        //logs user guess and compares against computer guess
         document.onkeyup = function (event) {
             var guess = event.key;
             userGuess.push(guess);
-            console.log (guess);
-            
+            console.log("User guess is " + guess);
+            if (userGuess[0] === computerGuess[0]) {
+                wins++;
+                console.log("winner winner chicken dinner");
+            } else if (userGuess[0] !== computerGuess[0]) {
+                guessesLeft--;
+            }
         }
-
-        // $("#four").innerText("Letters guessed so far" + userGuess);;
-    
-        
-        //pushing user guess to guesses so far
-
-
-
-        // loops through letters until correct one is c
-
-        // function userGuess (){
-        // for (var i = 0; i < letters.length; i++) {
-        //     console.log ("Your guess was " + letters[i]);
-        // }
-        // }
+        if (guessesLeft < 0) {
+            losses++;
+        }
     </script>
 
 </body>
