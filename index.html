@@ -40,16 +40,36 @@
             var guess = event.key;
             userGuess.push(guess);
             console.log("User guess is " + guess);
+
+
+            // counts wins and losses. prints them to console and to page
             if (userGuess[0] === computerGuess[0]) {
                 wins++;
                 console.log("winner winner chicken dinner");
+                //need to print wins to page here with jQuery
             } else if (userGuess[0] !== computerGuess[0]) {
                 guessesLeft--;
             }
+            if (guessesLeft < 1) {
+                losses++;
+                guessesLeft = 9;
+            }
+            // need to print losses to page here with jQuery
+
+            else if (losses++ || wins++) {
+            guessesLeft = 9;
+            computerGuess = [];
+            userGuess = [];
+            var rand = letters[Math.floor(Math.random() * letters.length)]; {
+                console.log(rand);
+                computerGuess.push(rand);
+            }
+
         }
-        if (guessesLeft < 0) {
-            losses++;
+
         }
+
+        
     </script>
 
 </body>
