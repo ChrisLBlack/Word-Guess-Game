@@ -42,8 +42,10 @@
             console.log("User guess is " + guess);
 
 
-            // counts wins and losses. prints them to console and to page
-            if (userGuess[0] === computerGuess[0]) {
+            // counts wins prints them to console and to page.  Also resets game.
+            if (userGuess[0] === computerGuess[0] || userGuess[1] === computerGuess[0] || userGuess[2] ===
+                computerGuess[0] || userGuess[3] === computerGuess[0] || userGuess[4] === computerGuess[0] ||
+                userGuess[5] === computerGuess[0] || userGuess[6] === computerGuess[0] || userGuess[7] === computerGuess[0] || userGuess[8] === computerGuess[0]) {
                 wins++;
                 userGuess = [];
                 computerGuess = [];
@@ -55,10 +57,11 @@
                     computerGuess.push(rand);
 
                 }
-
+                // if guess is wrong decreases guesses
             } else if (userGuess[0] !== computerGuess[0]) {
                 guessesLeft--;
             }
+            // counts losses ,prints them to the console/page.  Also resets game.
             if (guessesLeft < 1) {
                 losses++;
                 userGuess = [];
