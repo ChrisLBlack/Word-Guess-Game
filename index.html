@@ -14,12 +14,14 @@
     <div>
         <ul>
             <li id="wins">Wins:</li>
-            <li>Losses:</li>
-            <li>Guesses Left:</li>
-            <li id="four">Letters Guessed So Far:</li>
+            <li id="losses">Losses:</li>
+            <li id ="guesses">Guesses Left: 9</li>
+            <li id="letters">Letters Guessed So Far:</li>
         </ul>
     </div>
     <script type="text/javascript">
+
+        //listing all of the variables to be used in the game
         var wins = 0;
         var losses = 0;
         var guessesLeft = 9;
@@ -32,12 +34,14 @@
         // picks random letter and prints to console
         var rand = letters[Math.floor(Math.random() * letters.length)]; {
             console.log(rand);
+            //pushes to global variable to be used for other functions
             computerGuess.push(rand);
         }
 
         //logs user guess and compares against computer guess
         document.onkeyup = function (event) {
             var guess = event.key;
+            //pushes to global variable to be used for other functions
             userGuess.push(guess);
             console.log("User guess is " + guess);
 
@@ -45,7 +49,8 @@
             // counts wins prints them to console and to page.  Also resets game.
             if (userGuess[0] === computerGuess[0] || userGuess[1] === computerGuess[0] || userGuess[2] ===
                 computerGuess[0] || userGuess[3] === computerGuess[0] || userGuess[4] === computerGuess[0] ||
-                userGuess[5] === computerGuess[0] || userGuess[6] === computerGuess[0] || userGuess[7] === computerGuess[0] || userGuess[8] === computerGuess[0]) {
+                userGuess[5] === computerGuess[0] || userGuess[6] === computerGuess[0] || userGuess[7] ===
+                computerGuess[0] || userGuess[8] === computerGuess[0]) {
                 wins++;
                 userGuess = [];
                 computerGuess = [];
@@ -55,14 +60,17 @@
                 var rand = letters[Math.floor(Math.random() * letters.length)]; {
                     console.log(rand);
                     computerGuess.push(rand);
+                  $("#wins").text("Wins: " + wins);     
 
                 }
                 // if guess is wrong decreases guesses
             } else if (userGuess[0] !== computerGuess[0]) {
                 guessesLeft--;
+                  $("#guesses").text("Guesses Left: " + guessesLeft);
+                  $("#letters").text("Letters Guessed So Far: " + userGuess);
             }
             // counts losses ,prints them to the console/page.  Also resets game.
-            if (guessesLeft < 1) {
+            if (guessesLeft < 2) {
                 losses++;
                 userGuess = [];
                 computerGuess = [];
@@ -70,6 +78,7 @@
                 var rand = letters[Math.floor(Math.random() * letters.length)]; {
                     console.log(rand);
                     computerGuess.push(rand);
+                    $("#losses").text("Losses: " + losses);
 
                 }
 
